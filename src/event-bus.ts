@@ -1,10 +1,12 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
+
 import { v4 as uuidv4 } from "uuid";
 
 export interface EventToken {
   Id: string;
 }
 
-type EventCallback = (...args: []) => Promise<void>;
+type EventCallback = (...args: any[]) => Promise<void>;
 
 type Events = {
   [placeInOrder: number]: {
@@ -51,7 +53,7 @@ class Subscription {
     }
   }
 
-  public async call(...args: []): Promise<void> {
+  public async call(...args: any[]): Promise<void> {
     for (const orderIndex in this.events) {
       const placeInOrder = parseInt(orderIndex);
       for (const id in this.events[placeInOrder]) {
@@ -95,7 +97,7 @@ export class EventBus {
     }
   }
 
-  public async publish(topic: string, ...args: []): Promise<void> {
+  public async publish(topic: string, ...args: any[]): Promise<void> {
     const subs = this.subscriptions[topic];
     if (!subs) {
       return;
