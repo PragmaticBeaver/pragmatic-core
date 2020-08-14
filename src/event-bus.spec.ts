@@ -118,4 +118,37 @@ describe("EventBus", async () => {
     assert.equal(firstResult, lastSubscribedId);
     assert.equal(secondResult, firstSubscribedId);
   });
+
+  it("should publish args to subscriber", async () => {
+    const sut = new EventBus();
+    const topic = "testTopic";
+
+    type TestObj = {
+      id: string;
+      val: {
+        name: string;
+        sirname: string;
+      };
+    };
+
+    let wasCalled = false;
+    let resultingArgs;
+    sut.subscribe(topic, async (obj: TestObj) => {
+      wasCalled = true;
+      resultingArgs = obj;
+    });
+
+    const testData: TestObj = {
+      id: "testId",
+      val: {
+        name: "theTest",
+        sirname: "ofTestingHouse",
+      },
+    };
+    await sut.publish(topic, testData);
+
+    assert.isTrue(wasCalled);
+    assert.isNotNull(resultingArgs);
+    assert.deepEqual(resultingArgs, testData);
+  });
 });
