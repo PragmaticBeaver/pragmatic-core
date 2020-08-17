@@ -1,16 +1,26 @@
 {
   "name": "pragmatic-core",
-  "version": "1.0.0",
-  "description": "",
-  "main": "main.js",
+  "version": "0.0.6",
+  "description": "Simple framework to kickstart your application in a pragmatic and loosely coupled way.",
+  "author": "Dominik Blatzheim",
+  "license": "MIT",
+  "keywords": [
+    "pragmatic",
+    "framework",
+    "loosely coupled",
+    "event",
+    "event bus",
+    "plugin"
+  ],
+  "main": "dist/main.js",
+  "types": "dist/main.d.ts",
   "scripts": {
     "build": "rimraf ./dist && tsc",
     "start:dev": "nodemon",
     "start": "yarn run build && node dist/main.js",
-    "test": "yarn run build && mocha dist/**/*.spec.js"
+    "test": "yarn run build && mocha dist/**/*.spec.js",
+    "prepublish": "yarn run build"
   },
-  "author": "",
-  "license": "ISC",
   "devDependencies": {
     "@types/chai": "^4.2.12",
     "@types/mocha": "^8.0.2",
