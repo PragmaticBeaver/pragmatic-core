@@ -19,7 +19,7 @@
     "start:dev": "nodemon",
     "start": "yarn run build && node dist/main.js",
     "test": "yarn run build && mocha dist/**/*.spec.js",
-    "prepublish": "yarn run build"
+    "prepublish": "rimraf ./dist && webpack"
   },
   "devDependencies": {
     "@types/chai": "^4.2.12",
@@ -34,8 +34,11 @@
     "nodemon": "^2.0.4",
     "prettier": "^2.0.5",
     "rimraf": "^3.0.2",
+    "ts-loader": "^8.0.2",
     "ts-node": "^8.10.2",
-    "typescript": "^3.9.7"
+    "typescript": "^3.9.7",
+    "webpack": "^4.44.1",
+    "webpack-cli": "^3.3.12"
   },
   "dependencies": {
     "uuid": "^8.3.0"

@@ -5,6 +5,7 @@
     "lib": ["es2017", "es7", "es6", "dom"],
     "outDir": "dist",
     "rootDir": "src",
+    "sourceMap": true,
     "declaration": true,
     "strict": true,
     "noImplicitAny": true,
