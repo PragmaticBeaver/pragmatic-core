@@ -1,13 +1,7 @@
 import { EventBus } from "./event-bus";
 
-export class Plugin {
-  private eventBus: EventBus;
+export interface IPlugin {
+  eventBus: EventBus;
 
-  constructor(eventBus: EventBus) {
-    this.eventBus = eventBus;
-  }
-
-  public initialize(): void {
-    //
-  }
+  initialize(): void;
 }

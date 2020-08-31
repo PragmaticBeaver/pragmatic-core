@@ -1,4 +1,4 @@
 import { EventBus, EventToken } from "./event-bus";
-import { Plugin } from "./plugin";
+import { IPlugin } from "./plugin";
 
-export { EventBus, EventToken, Plugin };
+export { EventBus, EventToken, IPlugin };
