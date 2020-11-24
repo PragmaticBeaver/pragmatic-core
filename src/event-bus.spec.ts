@@ -1,6 +1,4 @@
-import "mocha";
 import { EventBus } from "./event-bus";
-import { assert } from "chai";
 
 describe("EventBus", async () => {
   it("should add subscriber", async () => {
@@ -11,8 +9,8 @@ describe("EventBus", async () => {
       console.log("hello test");
     });
 
-    assert.isNotNull(result);
-    assert.isNotNull(result.Id);
+    expect(result).toBeDefined();
+    expect(result.Id).toBeDefined();
   });
 
   it("should remove subscriber", async () => {
@@ -43,7 +41,7 @@ describe("EventBus", async () => {
     sut.unsubscribe(token);
     await sut.publish(topic);
 
-    assert.isTrue(wasCalled);
+    expect(wasCalled).toBeTruthy();
   });
 
   it("should call subscriber callback", async () => {
@@ -57,7 +55,7 @@ describe("EventBus", async () => {
 
     await sut.publish(topic);
 
-    assert.isTrue(wasCalled);
+    expect(wasCalled).toBeTruthy();
   });
 
   it("should call every subscriber callback", async () => {
@@ -79,9 +77,9 @@ describe("EventBus", async () => {
 
     await sut.publish(topic);
 
-    assert.isTrue(firstCbWasCalled);
-    assert.isTrue(secondCbWasCalled);
-    assert.isTrue(thirdCbWasCalled);
+    expect(firstCbWasCalled).toBeTruthy();
+    expect(secondCbWasCalled).toBeTruthy();
+    expect(thirdCbWasCalled).toBeTruthy();
   });
 
   it("should sort subscriber depending on placeInOrder", async () => {
@@ -112,11 +110,11 @@ describe("EventBus", async () => {
     const secondResult = calls.pop();
     const firstResult = calls.pop();
 
-    assert.isNotNull(firstResult);
-    assert.isNotNull(secondResult);
+    expect(firstResult).toBeDefined();
+    expect(firstResult).toEqual(lastSubscribedId);
 
-    assert.equal(firstResult, lastSubscribedId);
-    assert.equal(secondResult, firstSubscribedId);
+    expect(secondResult).toBeDefined();
+    expect(secondResult).toEqual(firstSubscribedId);
   });
 
   it("should publish args to subscriber", async () => {
@@ -147,8 +145,10 @@ describe("EventBus", async () => {
     };
     await sut.publish(topic, testData);
 
-    assert.isTrue(wasCalled);
-    assert.isNotNull(resultingArgs);
-    assert.deepEqual(resultingArgs, testData);
+    expect(wasCalled).toBeTruthy();
+
+    expect(resultingArgs).toBeDefined();
+    expect(resultingArgs).not.toBeNull();
+    expect(resultingArgs).toEqual(testData);
   });
 });
