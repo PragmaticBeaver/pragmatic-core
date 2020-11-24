@@ -13,8 +13,6 @@
     "plugin",
     "chain of responsibility"
   ],
-  "main": "dist/main.js",
-  "types": "dist/main.d.ts",
   "scripts": {
     "build": "yarn run clean && tsc",
     "clean": "rimraf ./dist/",
@@ -22,7 +20,8 @@
     "start": "yarn run build && node dist/main.js",
     "test": "yarn run clean && jest",
     "cp-important": "ncp ./LICENSE ./dist/LICENSE && ncp ./README ./dist/README && ncp ./package.json ./dist/package.json",
-    "prepublish": "yarn run clean && webpack && yarn run cp-important"
+    "prepublish-webpack": "yarn run clean && webpack && yarn run cp-important",
+    "prepublish": "yarn run build && yarn run cp-important"
   },
   "dependencies": {
     "uuid": "^8.3.1"
