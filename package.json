@@ -1,6 +1,6 @@
 {
   "name": "pragmatic-core",
-  "version": "0.0.9",
+  "version": "1.0.0",
   "description": "Simple framework to kickstart your application in a pragmatic and loosely coupled way. This project is still 'work in progress', expect breaking changes!",
   "author": "Dominik Blatzheim",
   "license": "MIT",
@@ -10,7 +10,8 @@
     "loosely coupled",
     "event",
     "event bus",
-    "plugin"
+    "plugin",
+    "chain of responsibility"
   ],
   "main": "dist/main.js",
   "types": "dist/main.d.ts",
@@ -20,21 +21,21 @@
     "start:dev": "nodemon",
     "start": "yarn run build && node dist/main.js",
     "test": "yarn run clean && jest",
-    "prepublish": "rimraf ./dist && webpack"
+    "cp-important": "ncp ./LICENSE ./dist/LICENSE && ncp ./README ./dist/README && ncp ./package.json ./dist/package.json",
+    "prepublish": "yarn run clean && webpack && yarn run cp-important"
   },
   "dependencies": {
-    "uuid": "^8.3.0",
-    "winston": "^3.3.3"
+    "uuid": "^8.3.1"
   },
   "devDependencies": {
     "@types/jest": "^26.0.15",
     "@types/node": "^14.0.27",
     "@types/uuid": "^8.3.0",
-    "@types/winston": "^2.4.4",
     "@typescript-eslint/eslint-plugin": "^4.8.2",
     "@typescript-eslint/parser": "^4.8.2",
     "eslint": "^7.14.0",
     "jest": "^26.6.3",
+    "ncp": "^2.0.0",
     "nodemon": "^2.0.4",
     "prettier": "^2.2.0",
     "rimraf": "^3.0.2",
