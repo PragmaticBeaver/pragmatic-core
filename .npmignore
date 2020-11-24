@@ -1,6 +1,7 @@
 src/*
 .vscode/*
 *.spec.js
+*.spec.ts
 *.spec.d.ts
 nodemon.json
 .prettierrc.json
