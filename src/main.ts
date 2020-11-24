@@ -1,8 +1,38 @@
-import * as EventBus from "./event-bus";
-import * as Plugin from "./plugin";
-import * as PluginConfig from "./plugin-config";
-import * as EventChainTypes from "./event-chain-types";
-import * as EventChain from "./event-chain";
-import * as PluginManager from "./plugin-manager";
+import { EventBus, EventToken } from "./event-bus";
 
-export { EventBus, Plugin, PluginConfig, EventChainTypes, EventChain, PluginManager};
+import {
+  ChainCallback,
+  ChainToken,
+  IChain,
+  IEventChain,
+  PragmaticEventChain,
+} from "./event-chain";
+
+import { PluginConfig, PluginEnabled } from "./plugin-config";
+
+import {
+  PluginManager,
+  PluginManagerConfig,
+  PluginManagerEvents,
+  PluginManagerHook,
+} from "./plugin-manager";
+
+import { ChainPluginBase, IPlugin } from "./plugin";
+
+export {
+  EventBus,
+  EventToken,
+  ChainCallback,
+  ChainToken,
+  IChain,
+  IEventChain,
+  PragmaticEventChain,
+  PluginConfig,
+  PluginEnabled,
+  PluginManager,
+  PluginManagerConfig,
+  PluginManagerEvents,
+  PluginManagerHook,
+  ChainPluginBase,
+  IPlugin,
+};
