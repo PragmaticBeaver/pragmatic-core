@@ -12,9 +12,10 @@
     "pragmatic",
     "framework",
     "loosely coupled",
+    "plugin",
     "event",
     "event bus",
-    "plugin",
+    "chain",
     "chain of responsibility"
   ],
   "files": [
