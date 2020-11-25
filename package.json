@@ -1,6 +1,6 @@
 {
   "name": "pragmatic-core",
-  "version": "0.0.12-beta",
+  "version": "0.0.12",
   "description": "Simple framework to kickstart your application in a pragmatic and loosely coupled way. This project is still 'work in progress', expect breaking changes!",
   "author": "Dominik Blatzheim",
   "license": "MIT",

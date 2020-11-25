@@ -8,15 +8,6 @@ import {
   PragmaticEventChain,
 } from "./event-chain";
 
-import { PluginConfig, PluginEnabled } from "./plugin-config";
-
-import {
-  PluginManager,
-  PluginManagerConfig,
-  PluginManagerEvents,
-  PluginManagerHook,
-} from "./plugin-manager";
-
 import { ChainPluginBase, IPlugin } from "./plugin";
 
 export {
@@ -27,12 +18,6 @@ export {
   IChain,
   IEventChain,
   PragmaticEventChain,
-  PluginConfig,
-  PluginEnabled,
-  PluginManager,
-  PluginManagerConfig,
-  PluginManagerEvents,
-  PluginManagerHook,
   ChainPluginBase,
   IPlugin,
 };
