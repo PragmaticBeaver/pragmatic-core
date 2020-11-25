@@ -1,6 +1,6 @@
 import { EventBus } from "./event-bus";
 
-describe("EventBus", async () => {
+describe("EventBus", () => {
   it("should add subscriber", async () => {
     const sut = new EventBus();
     const topic = "testTopic";
