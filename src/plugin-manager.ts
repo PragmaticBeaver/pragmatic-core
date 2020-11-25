@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import * as fs from "fs";
-import { PluginConfig } from "./plugin-config";
 import { IEventChain } from "./event-chain";
+import { PluginConfig } from "./plugin-config";
 
 export type PluginManagerConfig = {
   pluginConfigPath: string;
@@ -41,7 +41,7 @@ export class PluginManager {
       modules = val.modules;
     } else {
       config = this.readPluginConfig(configuration.pluginConfigPath);
-      modules = this.loadModules(configuration.pluginIndexPath);
+      modules = await this.loadModules(configuration.pluginIndexPath);
     }
 
     this.config = config;
@@ -100,8 +100,7 @@ export class PluginManager {
    * @param path absolut path to plugin-index
    */
   /* istanbul ignore next */
-  private loadModules(path: string): any {
-    // eslint-disable-next-line @typescript-eslint/no-var-requires
-    return require(path);
+  private async loadModules(path: string): Promise<any> {
+    return await import(path);
   }
 }
