@@ -13,15 +13,15 @@
     "plugin",
     "chain of responsibility"
   ],
+  "files": [
+    "dist/*"
+  ],
   "scripts": {
     "build": "yarn run clean && tsc",
     "clean": "rimraf ./dist/",
-    "start:dev": "nodemon",
     "start": "yarn run build && node dist/main.js",
-    "test": "yarn run clean && jest",
-    "cp-important": "ncp ./LICENSE ./dist/LICENSE && ncp ./README ./dist/README && ncp ./package.json ./dist/package.json",
-    "prepublish-webpack": "yarn run clean && webpack && yarn run cp-important",
-    "prepublish": "yarn run build && yarn run cp-important"
+    "test": "jest",
+    "prepublish": "yarn run build"
   },
   "dependencies": {
     "uuid": "^8.3.1"
@@ -34,15 +34,11 @@
     "@typescript-eslint/parser": "^4.8.2",
     "eslint": "^7.14.0",
     "jest": "^26.6.3",
-    "ncp": "^2.0.0",
-    "nodemon": "^2.0.4",
     "prettier": "^2.2.0",
     "rimraf": "^3.0.2",
     "ts-jest": "^26.4.4",
     "ts-loader": "^8.0.2",
     "ts-node": "^8.10.2",
-    "typescript": "^4.1.2",
-    "webpack": "^4.44.1",
-    "webpack-cli": "^3.3.12"
+    "typescript": "^4.1.2"
   }
 }
