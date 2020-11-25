@@ -1,9 +1,13 @@
 {
   "name": "pragmatic-core",
-  "version": "1.0.0",
+  "version": "0.0.10-alpha",
   "description": "Simple framework to kickstart your application in a pragmatic and loosely coupled way. This project is still 'work in progress', expect breaking changes!",
   "author": "Dominik Blatzheim",
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/PragmaticBeaver/pragmatic-core"
+  },
   "keywords": [
     "pragmatic",
     "framework",
